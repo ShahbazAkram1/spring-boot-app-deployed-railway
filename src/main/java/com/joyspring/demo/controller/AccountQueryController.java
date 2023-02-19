@@ -19,6 +19,11 @@ public class AccountQueryController {
         this.accountQueryService = accountQueryService;
     }
 
+    @GetMapping("/test")
+    public String test() {
+        return "hello";
+    }
+
     @GetMapping("/{accountId}")
     public ResponseEntity<Account> getAccountById(@PathVariable(value = "accountId") Long accountId) {
         Optional<Account> accountOpt = accountQueryService.getAccountById(accountId);
