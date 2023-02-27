@@ -7,7 +7,7 @@ plugins {
 jar {
 	manifest {
 		attributes(
-				'Main-Class': 'com.joyspring.DemoApplication'
+				'Main-Class': 'com.joyspring.demo.DemoApplication'
 		)
 	}
 }
