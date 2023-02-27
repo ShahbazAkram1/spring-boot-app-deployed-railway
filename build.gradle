@@ -7,10 +7,19 @@ plugins {
 jar {
 	manifest {
 		attributes(
-				'DemoApplication': 'com.joyspring.demo'
+				'Main-Class': 'com.joyspring.demo.DemoApplication'
 		)
 	}
 }
+jar {
+	manifest {
+		attributes(
+				'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+				'Main-Class': 'hello.HelloWorld'
+		)
+	}
+}
+
 
 group = 'com.joyspring'
 version = '0.0.1-SNAPSHOT'
