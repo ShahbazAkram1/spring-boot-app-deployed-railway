@@ -1,3 +1,4 @@
-FROM eclipse-temurin:17-jdk-alpine
-ADD build/libs/*.jar dockerapp.jar
-ENTRYPOINT ["java", "-jar -Dserver.port=$PORT", "dockerapp.jar"]
+FROM openjdk:8-jre-alpine
+WORKDIR /app
+COPY build/libs/*.jar dockerapp.jar
+CMD ["java", "-jar", "dockerapp.jar"]
