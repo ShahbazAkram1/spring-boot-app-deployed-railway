@@ -1,10 +1,14 @@
-version: '3.8'
+# Use a base image with JDK preinstalled
+FROM openjdk:8-jdk-alpine
 
-services:
-  db:
-    image: postgres:alpine
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_PASSWORD: tTdCcpATQUp9Pol4zrqR
-      POSTGRES_DB: railway
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy the JAR file into the container
+COPY target/Railway.jar /app/Railway.jar
+
+# Expose port 8080 for the container
+EXPOSE 8080
+
+# Set the entrypoint to run the Spring Boot application
+ENTRYPOINT ["java", "-jar", "Railway.jar"]
