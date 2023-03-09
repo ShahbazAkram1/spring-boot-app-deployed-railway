@@ -1,11 +1,10 @@
-## Start with a base image
-#FROM openjdk:8-jdk-alpine
-#
-## Set the working directory to /app
-#WORKDIR /app
-#
-## Copy the .jar file from the build/libs directory to the Docker image
-#COPY build/libs/*.jar dockerapp.jar
-#
-## Start the application
-#CMD ["java", "-jar", "dockerapp.jar"]
+version: '3.8'
+
+services:
+  db:
+    image: postgres:alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: tTdCcpATQUp9Pol4zrqR
+      POSTGRES_DB: railway
