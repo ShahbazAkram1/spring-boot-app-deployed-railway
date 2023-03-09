@@ -1,14 +1,11 @@
-# Use a base image with JDK preinstalled
+# Use a base image with JDK 8 preinstalled
 FROM openjdk:8-jdk-alpine
 
 # Set the working directory to /app
 WORKDIR /app
 
-# Copy the JAR file into the container
-COPY target/Railway.jar /app/Railway.jar
+# Copy the jar file into the container
+COPY libs/demo-0.0.1-SNAPSHOT-plain.jar .
 
-# Expose port 8080 for the container
-EXPOSE 8080
-
-# Set the entrypoint to run the Spring Boot application
-ENTRYPOINT ["java", "-jar", "Railway.jar"]
+# Specify the command to run on container startup
+CMD ["java", "-jar", "demo-0.0.1-SNAPSHOT-plain.jar"]
