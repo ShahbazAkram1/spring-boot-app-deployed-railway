@@ -1,8 +1,3 @@
-FROM openjdk:8-jdk-alpine
-
-COPY libs /app/libs
-WORKDIR /app
-
-COPY build/libs/demo-0.0.1-SNAPSHOT-plain.jar app.jar
-
-ENTRYPOINT ["java", "-jar", "app.jar"]
+FROM openjdk:8-jre-alpine
+ADD ./docker-spring.jar docker-spring-boot.jar
+ENTRYPOINT {"java","-jar"","docker-spring-boot.jar"
